@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body, h1, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: beige;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .forgot-button {
+            margin-top: 10px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .forgot-button:hover {
+            color: #0056b3;
+        }
+
+        .error-text {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Admin Login</h1>
+        <div id="error-message" class="error-text"></div>
+        <input type="text" id="email" placeholder="Email or Username" class="input">
+        <input type="password" id="password" placeholder="Password" class="input">
+        <button class="button" onclick="handleLogin()">Login</button>
+        <a href="#" class="forgot-button">Forgot Password</a>
+    </div>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAWM6WM0oBEiQXbs7BWdmUXY_zTAy5dms4",
+            authDomain: "capstone-b25eb.firebaseapp.com",
+            projectId: "capstone-b25eb",
+            storageBucket: "capstone-b25eb.appspot.com",
+            messagingSenderId: "531265456538",
+            appId: "1:531265456538:web:9588d898282cdbca3e5223"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    var user = userCredential.user;
+                    window.location.href = 'adminDashboard.html'; // Redirect to admin dashboard
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessageText = error.message;
+                    errorMessage.textContent = errorMessageText;
+                });
+        }
+    </script>
+</body>
+</html>
