@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js" type="module"></script>
+    <script src="firebase-config.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+    <title>Student Records</title>
+</head>
+<body>
+    
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand"><img src="/system/admin/assets/logo.jpg" alt="Office Logo" class="icon">OSD</a>
+        <ul class="side-menu">
+            <li><a href="index.html" onclick="changeSection('dashboard')"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+            <li><a href="records.html" class="active"><i class='bx bxs-user-voice icon'></i> Student Records</a></li>
+            <!-- Removed Departments Section -->
+        </ul>
+        <div class="ads">
+            <div class="wrapper">
+                <a href="#" class="btn-upgrade" onclick="toggleChatbox()">Chatbot</a>
+                <p>Know more<span>PRO</span> member and enjoy <span>All Features</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVBAR -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <a href="#" class="nav-link">
+                <i class='bx bxs-bell icon'></i>
+                <span class="badge">5</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class='bx bxs-message-square-dots icon'></i>
+                <span class="badge">8</span>
+            </a>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                <ul class="profile-link">
+                    <li><a href="profile.html" target="_blank"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- NAVBAR -->
+        <main>
+            <!-- Student Records Section -->
+            <section id="student-records">
+                <h1 class="title">Student Records</h1>
+                <!-- Content for Student Records Section -->
+                
+                <!-- Department Buttons -->
+                <div class="department-buttons">
+                    <button onclick="window.open('cics.html', '_blank')">CICS</button>
+                    <button onclick="window.open('cas.html', '_blank')">CAS</button>
+                    <button onclick="window.open('cte.html', '_blank')">CTE</button>
+                    <button onclick="window.open('cabheim.html', '_blank')">CABHEIM</button>
+                </div>
+            </section>
+
+            <div class="data">
+                <div class="content-data">
+                    <div class="head">
+                        <h3>Violation History</h3>
+                        <!-- Search Bar for Student ID -->
+                        
+                    </div>
+                    <div class="table">
+                        <table id="student-table">
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Department</th>
+                                    <th>Gsuite Account</th>
+                                    <th>Name</th>
+                                    <th>SR-Code</th>
+                                    <th>Time</th>
+                                    <th>Violations</th>
+                                    <th>Year/Section</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- dynamically generate table rows for each student violation -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Chart Container -->
+                <div id="violations-chart"></div>
+            </div>
+        </main>
+    </section>
+    <!-- NAVBAR -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        /* Basic reset */
+        body, h1, a, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #main {
+            text-align: center;
+        }
+
+        .hamburger {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+            z-index: 1000;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <section id="main">
+        <h1>Welcome to the OSD</h1>
+        <button id="hamburger-menu" class="hamburger">
+            ☰
+        </button>
+        <div id="menu" class="menu">
+            <a href="chat.html" onclick="continueAs('student')">Continue as Student</a>
+            <a href="chat.html" onclick="continueAs('faculty')">Continue as Faculty</a>
+            <a href="C:\Users\Maxine\OneDrive\Desktop\capstone2\system\admin\adminLogin.html" onclick="continueAs('admin')">Continue as Admin</a>
+        </div>
+    </section>
+
+    <script>
+        // Toggle hamburger menu
+        document.getElementById('hamburger-menu').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Handle continue as options
+        function continueAs(role) {
+            console.log('Continue as:', role);
+            // Add your navigation logic here
+        }
+    </script>
+</body>
+</html>
